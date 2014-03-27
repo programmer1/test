@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+function store(){
+// Check browser support
+if (typeof(Storage) != "undefined")
+  { // Store
+  localStorage.setItem("lastname", "Smith");
+  // Retrieve
+  document.getElementById("result").innerHTML=localStorage.getItem("lastname");
+  }
+else
+  {
+  document.getElementById("result").innerHTML="Your browser does not use Web Storage";
+  }
+}
+</script>
+</head>
+<body>
+
+<div id="result"></div>
+
+<form name='f' onsubmit='' >
+First name: <input id='fname' /><br/>
+Surname: <input id='lname' /><br/>
+<input type='submit' onclick='store()' />
+</form>
+</body>
+</html>
