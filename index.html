@@ -1,30 +1,31 @@
 <!DOCTYPE html>
 <html>
-<head>
-<script>
-function store(){
-// Check browser support
-if (typeof(Storage) != "undefined")
-  { // Store
-  localStorage.setItem("lastname", "Smith");
-  // Retrieve
-  document.getElementById("result").innerHTML=localStorage.getItem("lastname");
-  }
-else
-  {
-  document.getElementById("result").innerHTML="Your browser does not use Web Storage";
-  }
-}
-</script>
-</head>
 <body>
+<script>
+if(typeof(Storage)!="undefined") document.write("abc<br/>");
+if(!localStorage.clicks)localStorage.clicks=0;
+</script>
+<div style='text-align:center' id='click'>Number of clicks</div>
+<button type='button' onclick='localStorage.clicks++;'>Increase count</button><br/>
+<button type='button' onclick='document.getElementById("click").innerHTML=localStorage.clicks;'>Show number of clicks</button>
+<br/>
+<p id="demo">Click the button to get your coordinates:</p>
+<button onclick="getLocation()">Try It</button>
+<script>
+var x=document.getElementById("demo");
+function getLocation()
+  {
+  if (navigator.geolocation)
+    {
+    navigator.geolocation.getCurrentPosition(showPosition);
+    }
+  else{x.innerHTML="Geolocation is not supported by this browser.";}
+  }
+function showPosition(position)
+  {
+  x.innerHTML="Latitude: " + position.coords.latitude + 
+  "<br>Longitude: " + position.coords.longitude;	
+  }
+</script>
 
-<div id="result"></div>
-
-<form name='f' onsubmit='' >
-First name: <input id='fname' /><br/>
-Surname: <input id='lname' /><br/>
-<input type='submit' onclick='store()' />
-</form>
-</body>
-</html>
+</body></html>
