@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="org.kidedu.test" version="0.0.1">
+        <name>Storage test</name>
+        <description>
+            Testing Web Storage.
+        </description>
+        <author email="mail@kidedu.org" href="http://kidedu.org">
+            Frantisek Korbel
+        </author>
+        <content src="index.html" />
+        <access origin="*" />
+        <preference name="Fullscreen" value="true" />
+        <preference name="WebViewBounce" value="true" />
+</widget>
